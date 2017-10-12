@@ -7,6 +7,7 @@ package View;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.plaf.PanelUI;
 
@@ -43,7 +44,7 @@ public class Main extends javax.swing.JFrame {
         pn_KhoH = new javax.swing.JPanel();
         lb_KhoH = new javax.swing.JLabel();
         pn_NPP = new javax.swing.JPanel();
-        lb_QLNPP = new javax.swing.JLabel();
+        lbl_QLNPP = new javax.swing.JLabel();
         pn_KH = new javax.swing.JPanel();
         lb_KH = new javax.swing.JLabel();
         pnl_right = new javax.swing.JPanel();
@@ -137,11 +138,16 @@ public class Main extends javax.swing.JFrame {
                 lb_QLLSPMouseMoved(evt);
             }
         });
+        lb_QLLSP.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lb_QLLSPMouseClicked(evt);
+            }
+        });
         pn_QLLSP.add(lb_QLLSP);
 
         pn_BH.setBackground(new java.awt.Color(0, 0, 204));
         pn_BH.setPreferredSize(new java.awt.Dimension(109, 22));
-        pn_BH.setLayout(new java.awt.GridLayout());
+        pn_BH.setLayout(new java.awt.GridLayout(1, 0));
 
         lb_BH.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lb_BH.setForeground(new java.awt.Color(255, 255, 255));
@@ -159,7 +165,7 @@ public class Main extends javax.swing.JFrame {
         pn_BH.add(lb_BH);
 
         pn_QLNV.setBackground(new java.awt.Color(0, 0, 204));
-        pn_QLNV.setLayout(new java.awt.GridLayout());
+        pn_QLNV.setLayout(new java.awt.GridLayout(1, 0));
 
         lb_QLNV.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lb_QLNV.setForeground(new java.awt.Color(255, 255, 255));
@@ -177,7 +183,7 @@ public class Main extends javax.swing.JFrame {
         pn_QLNV.add(lb_QLNV);
 
         pn_KhoH.setBackground(new java.awt.Color(0, 0, 204));
-        pn_KhoH.setLayout(new java.awt.GridLayout());
+        pn_KhoH.setLayout(new java.awt.GridLayout(1, 0));
 
         lb_KhoH.setBackground(new java.awt.Color(255, 255, 255));
         lb_KhoH.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -196,30 +202,30 @@ public class Main extends javax.swing.JFrame {
         pn_KhoH.add(lb_KhoH);
 
         pn_NPP.setBackground(new java.awt.Color(0, 0, 204));
-        pn_NPP.setLayout(new java.awt.GridLayout());
+        pn_NPP.setLayout(new java.awt.GridLayout(1, 0));
 
-        lb_QLNPP.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        lb_QLNPP.setForeground(new java.awt.Color(255, 255, 255));
-        lb_QLNPP.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lb_QLNPP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/nhà pp.png"))); // NOI18N
-        lb_QLNPP.setText("QL Nhà PP");
-        lb_QLNPP.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        lb_QLNPP.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        lb_QLNPP.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        lb_QLNPP.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+        lbl_QLNPP.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lbl_QLNPP.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_QLNPP.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_QLNPP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/nhà pp.png"))); // NOI18N
+        lbl_QLNPP.setText("QL Nhà PP");
+        lbl_QLNPP.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lbl_QLNPP.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        lbl_QLNPP.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        lbl_QLNPP.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
-                lb_QLNPPMouseMoved(evt);
+                lbl_QLNPPMouseMoved(evt);
             }
         });
-        lb_QLNPP.addMouseListener(new java.awt.event.MouseAdapter() {
+        lbl_QLNPP.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lb_QLNPPMouseClicked(evt);
+                lbl_QLNPPMouseClicked(evt);
             }
         });
-        pn_NPP.add(lb_QLNPP);
+        pn_NPP.add(lbl_QLNPP);
 
         pn_KH.setBackground(new java.awt.Color(0, 0, 204));
-        pn_KH.setLayout(new java.awt.GridLayout());
+        pn_KH.setLayout(new java.awt.GridLayout(1, 0));
 
         lb_KH.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lb_KH.setForeground(new java.awt.Color(255, 255, 255));
@@ -232,6 +238,11 @@ public class Main extends javax.swing.JFrame {
         lb_KH.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
                 lb_KHMouseMoved(evt);
+            }
+        });
+        lb_KH.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lb_KHMouseClicked(evt);
             }
         });
         pn_KH.add(lb_KH);
@@ -366,7 +377,7 @@ public class Main extends javax.swing.JFrame {
         setBg(pn_QLNV);
     }//GEN-LAST:event_lb_QLNVMouseMoved
 
-    private void lb_QLNPPMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_QLNPPMouseMoved
+    private void lbl_QLNPPMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_QLNPPMouseMoved
         // TODO add your handling code here:
         resetBg(pn_KhoH);
         setBg(pn_NPP);
@@ -374,7 +385,7 @@ public class Main extends javax.swing.JFrame {
         resetBg(pn_BH);
         resetBg(pn_QLLSP);
         resetBg(pn_QLNV);
-    }//GEN-LAST:event_lb_QLNPPMouseMoved
+    }//GEN-LAST:event_lbl_QLNPPMouseMoved
 
     private void lb_KHMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_KHMouseMoved
         // TODO add your handling code here:
@@ -386,14 +397,13 @@ public class Main extends javax.swing.JFrame {
         resetBg(pn_QLNV);
     }//GEN-LAST:event_lb_KHMouseMoved
 
-    private void lb_QLNPPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_QLNPPMouseClicked
+    private void lbl_QLNPPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_QLNPPMouseClicked
         // TODO add your handling code here:
         Pn_NhaPP pn_NhaPP = new Pn_NhaPP();
         pnl_right.removeAll();
         pnl_right.add(pn_NhaPP);
         pnl_right.validate();
-        
-    }//GEN-LAST:event_lb_QLNPPMouseClicked
+    }//GEN-LAST:event_lbl_QLNPPMouseClicked
 
     private void pnl_rightMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnl_rightMouseMoved
         // TODO add your handling code here:
@@ -414,12 +424,31 @@ public class Main extends javax.swing.JFrame {
         resetBg(pn_QLLSP);
         resetBg(pn_QLNV);
     }//GEN-LAST:event_jPanel2MouseMoved
+
+    private void lb_QLLSPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_QLLSPMouseClicked
+        // TODO add your handling code here:
+        Pn_LSP pn_LSP = new Pn_LSP();
+        pnl_right.removeAll();
+        pnl_right.add(pn_LSP);
+        pnl_right.validate();
+    }//GEN-LAST:event_lb_QLLSPMouseClicked
+
+    private void lb_KHMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_KHMouseClicked
+        // TODO add your handling code here:
+        Pn_KhachHang pn_KhachHang = new Pn_KhachHang();
+        pnl_right.removeAll();
+        pnl_right.add(pn_KhachHang);
+        pnl_right.validate();
+    }//GEN-LAST:event_lb_KHMouseClicked
     public void setBg(javax.swing.JPanel a) {
-        a.setBackground(new Color(51, 51, 255));
+        a.setBackground(Color.red);
     }
 
     public void resetBg(javax.swing.JPanel a) {
         a.setBackground(new Color(0, 0, 204));
+    }
+    public void setBgMouseClick(javax.swing.JPanel a){
+        a.setBackground(Color.white);
     }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -463,8 +492,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel lb_KH;
     private javax.swing.JLabel lb_KhoH;
     private javax.swing.JLabel lb_QLLSP;
-    private javax.swing.JLabel lb_QLNPP;
     private javax.swing.JLabel lb_QLNV;
+    private javax.swing.JLabel lbl_QLNPP;
     private javax.swing.JPanel pn_BH;
     private javax.swing.JPanel pn_KH;
     private javax.swing.JPanel pn_KhoH;
