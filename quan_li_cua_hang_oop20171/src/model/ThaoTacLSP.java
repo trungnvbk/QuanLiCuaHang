@@ -1,52 +1,40 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package model;
 
+import java.io.UnsupportedEncodingException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-/**
- *
- * @author Admin
- */
 public class ThaoTacLSP {
-    
-    //Statement stmt =  (Statement) new Connect().getConnect();
-   
-    // Lay thong tin
-    public ArrayList<LoaiSanPham> getAll(){
+
+    public ArrayList<LoaiSanPham> getAll() {
         ArrayList<LoaiSanPham> listLSP = new ArrayList<>();
-        
-        try{
+        try {
             Statement stmt = new Connect().getConnect().createStatement();
             ResultSet rs = stmt.executeQuery("SELECT *FROM loai_san_pham");
-            while(rs.next()){
+            while (rs.next()) {
                 LoaiSanPham loaiSanPham = new LoaiSanPham();
                 loaiSanPham.setMa_LSP(rs.getString("Ma_LSP"));
                 loaiSanPham.setTen_LSP(rs.getString("Ten_LSP"));
                 listLSP.add(loaiSanPham);
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
         return listLSP;
     }
-    
-    public boolean addData(LoaiSanPham loaiSanPham){
+
+    public boolean addData(LoaiSanPham loaiSanPham) {
         ArrayList<LoaiSanPham> listLSP = getAll();
         int test = 0;
-        for(LoaiSanPham lsp: listLSP){
-            if(loaiSanPham.getMa_LSP().equals(lsp.getMa_LSP())){
+        for (LoaiSanPham lsp : listLSP) {
+            if (loaiSanPham.getMa_LSP().equals(lsp.getMa_LSP())) {
                 test = 1;
             }
         }
-        if(test == 0){
+        if (test == 0) {
             String sql = "INSERT INTO `loai_san_pham`(`Ma_LSP`, `Ten_LSP`) VALUES (?,?)";
             try {
                 PreparedStatement stmt = new Connect().getConnect().prepareStatement(sql);
@@ -56,15 +44,38 @@ public class ThaoTacLSP {
                 return true;
             } catch (Exception e) {
                 System.out.println(e.getMessage());
-            }   
+            }
         }
         return false;
-        
-        
     }
+    
+    public boolean updateLoaiSanPham(LoaiSanPham loaiSanPham) throws UnsupportedEncodingException{
+        ArrayList<LoaiSanPham> listLSP = getAll();
+        int test = 0;
+        for (LoaiSanPham lsp : listLSP) {
+            if (loaiSanPham.getTen_LSP().equals(lsp.getTen_LSP())) {
+                test = 1;
+            }
+        }
+        //test = 0 tuc la lsp nhap vao kho co trong csdl. luu y chi so sanh maLSP
+        if(test == 0){
+            String sql = "UPDATE loai_san_pham SET Ten_LSP = ? WHERE Ma_LSP = ?";
+            try{
+                PreparedStatement pstmt = new Connect().getConnect().prepareStatement(sql);
+                pstmt.setString(1, loaiSanPham.getTen_LSP());
+                pstmt.setString(2, loaiSanPham.getMa_LSP());
+                pstmt.executeUpdate();
+                return true;
+            }catch(Exception e){
+                System.out.println(e.getMessage());
+            }
+        }
+        return false;
+    }
+
     public static void main(String[] args) {
         ThaoTacLSP thaoTacLSP = new ThaoTacLSP();
-        LoaiSanPham lsp = new LoaiSanPham("LSP03", "Sách");
-        thaoTacLSP.addData(lsp);
+        System.out.println("\'trung nguyen\'");
+        System.out.println("Đĩa được củ hành sé");
     }
 }
