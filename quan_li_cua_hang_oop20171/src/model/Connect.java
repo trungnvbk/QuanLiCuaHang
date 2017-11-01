@@ -21,7 +21,7 @@ public class Connect {
     public Connection getConnect(){
         Connection conn = null;
         try {
-            String dbURL = "jdbc:mysql://localhost/quanlibanhang";
+            String dbURL = "jdbc:mysql://localhost/quanlibanhang?useUnicode=yes&characterEncoding=UTF-8";
             String username = "root";
             String password = "";
             conn = (Connection) DriverManager.getConnection(dbURL, username, password);

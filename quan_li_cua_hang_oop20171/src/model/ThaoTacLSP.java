@@ -49,7 +49,7 @@ public class ThaoTacLSP {
         return false;
     }
     
-    public boolean updateLoaiSanPham(LoaiSanPham loaiSanPham) throws UnsupportedEncodingException{
+    public boolean updateLoaiSanPham(LoaiSanPham loaiSanPham){
         ArrayList<LoaiSanPham> listLSP = getAll();
         int test = 0;
         for (LoaiSanPham lsp : listLSP) {

@@ -10,7 +10,6 @@ import model.LoaiSanPham;
 import model.ThaoTacLSP;
 
 public class ctlLSP {
-    private LoaiSanPham lsp;
     public void loadDataToTable(JTable table){
         Vector v = new Vector();
         v.addElement("Mã loại sản phẩm");
